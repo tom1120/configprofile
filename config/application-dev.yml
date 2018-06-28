@@ -40,7 +40,7 @@ spring:
         login-password: admin
   mail:
     host: smtp.126.com
-    username: '{cipher}AQCK2RDhaujFvumJ7DNptGJ1geipLQj+e9Pmy476hYrdKehmmgPLHWMptdO2Umpziqq9mTlTdoFma8on6JgNIBTBc5PJKELS/UQX8oUYkmUICKHxfim5d2s9LoeIexU3Qtq4BQS0goIZlN57VwrLU5C+yP5/agobHXsvVUBpuctbUkD6hPNjWIJL9uuOs+C4y+RztOrPft7HkeffgMW16l6EPnGgmLxJP+CqSW9uarN5gaz4mDb7HmmKfXI0waJebdcjisayeJ0aaQaY6lnrjhcJpu3ZBPbjYHZ3L7bQ5ItqXG4nn3UCAT8ibYdMRJF3N2ztUiakz1BC7/npludeBmUXJLbmQYGhfC/on/U/437H9/Doi5qUKK/4ofmdGqp52W0='
+    username: tom1120@126.com
     password: '{cipher}AQAg/oMi17IjWl7UYFKUpim1HCMTyJqytLvP/aFGA0PSvPGMdjs3sYZiNZkz59k5cei0cTr2n9YgzDtX7ptvah62sANCbZdPORUpceVc21YuTbGuWoU1X+98APRwcZMxdZLSkIwUmuNSUvfh8gpKVmdQxyG9S8sBiT+Rq8BHPtMQ6DAaa5jfRmeaWMPCm8AmyRMKyl7lzuZLSIA1YRujXG3fgQGC2JBAwBfI01xixxhRe3jg8b2v8fnB4IVF0uN9jxnZBcRDoZM5udtCZvWzNBA9ZBVWsKZMavkWcOTQV0aBmP8z3K6D6I+ht8Ql2XnXNO+KHI7sN0AA0nPj+3VCufEf7zS6ouMB+fnp1rDmSwtssQcieWhxbjhAn3IFXMklZcE='
     port: 465
     protocol: smtp
