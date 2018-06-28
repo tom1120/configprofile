@@ -1,0 +1,139 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    remote-ip-header: x-forwarded-for
+  use-forward-headers: true
+
+management:
+  security:
+    enabled: false
+
+spring:
+  aop:
+    proxy-target-class: true
+    auto: true
+  rabbitmq:
+    host: paascloud-mq-rabbit
+    port: 5672
+    username: guest
+    password: guest
+  redis:
+    host: paascloud-db-redis
+    password: paascloud@redis
+    port: 6379
+    timeout: 0
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat,wall
+    druid:
+      initial-size: 50
+      min-idle: 50
+      max-active: 100
+      test-on-borrow: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      web-stat-filter:
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+      stat-view-servlet:
+        allow:
+        login-username: admin
+        login-password: admin
+  mail:
+    host: smtp.126.com
+    username: {cipher}AQCK2RDhaujFvumJ7DNptGJ1geipLQj+e9Pmy476hYrdKehmmgPLHWMptdO2Umpziqq9mTlTdoFma8on6JgNIBTBc5PJKELS/UQX8oUYkmUICKHxfim5d2s9LoeIexU3Qtq4BQS0goIZlN57VwrLU5C+yP5/agobHXsvVUBpuctbUkD6hPNjWIJL9uuOs+C4y+RztOrPft7HkeffgMW16l6EPnGgmLxJP+CqSW9uarN5gaz4mDb7HmmKfXI0waJebdcjisayeJ0aaQaY6lnrjhcJpu3ZBPbjYHZ3L7bQ5ItqXG4nn3UCAT8ibYdMRJF3N2ztUiakz1BC7/npludeBmUXJLbmQYGhfC/on/U/437H9/Doi5qUKK/4ofmdGqp52W0=
+    password: {cipher}AQAg/oMi17IjWl7UYFKUpim1HCMTyJqytLvP/aFGA0PSvPGMdjs3sYZiNZkz59k5cei0cTr2n9YgzDtX7ptvah62sANCbZdPORUpceVc21YuTbGuWoU1X+98APRwcZMxdZLSkIwUmuNSUvfh8gpKVmdQxyG9S8sBiT+Rq8BHPtMQ6DAaa5jfRmeaWMPCm8AmyRMKyl7lzuZLSIA1YRujXG3fgQGC2JBAwBfI01xixxhRe3jg8b2v8fnB4IVF0uN9jxnZBcRDoZM5udtCZvWzNBA9ZBVWsKZMavkWcOTQV0aBmP8z3K6D6I+ht8Ql2XnXNO+KHI7sN0AA0nPj+3VCufEf7zS6ouMB+fnp1rDmSwtssQcieWhxbjhAn3IFXMklZcE=
+    port: 465
+    protocol: smtp
+    test-connection: false
+    default-encoding: UTF-8
+    properties:
+      mail:
+        debug: true
+        smtp:
+          auth: true
+          connectiontimeout: 10000
+          timeout: 10000
+          writetimeout: 10000
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+            port: 465
+          starttls:
+            enable: true
+            required: true
+  boot:
+    admin:
+      username: {cipher}AQBx6FA2cv7tzaBapP5Ky0rq7RgZgz7+uVoQflyJ6bT0iEEhtYM38nXjAsoMcML4r2L6M2UBFFU2JbMvWdoogHdkc/YBLZ8YyiELUv9VMCCeQzeclq3GT+udA3cI0YuTDz3o/oLAnNWW2/aryKD+Tw0llh4kKCDCxwrM1OcVjCVDXIVfQyilnSDJ7OGd1/KQsGW1o4XOYQEEsKF951rzGrRYl1HHXjW0bM4g7vDspwAWJdchmB1HAjAw7B8qjj5kftNkSGh3tdcE41LPbXsN/BhFbbCyk4Hnn072aEuiJEf+7rMXoSRnrLpmLzb4Fb69mg//JfiDkh5nKxRZTtCqayAebeEJ9XnlOt/DmUcSd0TRXCGjvmJwzTKkhktrEqtGuaI=
+      password: {cipher}AQBx6FA2cv7tzaBapP5Ky0rq7RgZgz7+uVoQflyJ6bT0iEEhtYM38nXjAsoMcML4r2L6M2UBFFU2JbMvWdoogHdkc/YBLZ8YyiELUv9VMCCeQzeclq3GT+udA3cI0YuTDz3o/oLAnNWW2/aryKD+Tw0llh4kKCDCxwrM1OcVjCVDXIVfQyilnSDJ7OGd1/KQsGW1o4XOYQEEsKF951rzGrRYl1HHXjW0bM4g7vDspwAWJdchmB1HAjAw7B8qjj5kftNkSGh3tdcE41LPbXsN/BhFbbCyk4Hnn072aEuiJEf+7rMXoSRnrLpmLzb4Fb69mg//JfiDkh5nKxRZTtCqayAebeEJ9XnlOt/DmUcSd0TRXCGjvmJwzTKkhktrEqtGuaI=
+  zipkin:
+    rabbitmq:
+      queue: zipkin
+  sleuth:
+    sampler:
+      percentage: 0.2
+
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+
+ribbon:
+  eager-load:
+    enabled: true
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 2
+  OkToRetryOnAllOperations: false
+  ConnectTimeout: 60000
+  ReadTimeout: 20000
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
+
+info:
+  软件著作权: paascloud快速搭建企业级分布式微服务平台
+  著作登记号: 2018SR320076
+  关于我们: http://paascloud.net
+
+paascloud:
+  auth:
+    jwt:
+      expiredRemainMinutes: 20
+      expiredMinutes: 120
+  aliyun:
+    key:
+      accessKeyId: 'your aliyun accessKeyId'
+      accessKeySecret: 'your aliyun accessKeySecret'
+    rocketMq:
+      namesrvAddr: paascloud-mq-rocket:9876
+    sms:
+      signName: 快乐学习网
+      regionId: cn-beijing
+      endpoint:
+      endpointName: cn-beijing
+      product: 'your sms product'
+      domain: dysmsapi.aliyuncs.com
+  qiniu:
+    key:
+      accessKey: 'your qiniu accessKey'
+      secretKey: 'your qiniu secretKey'
+    oss:
+      privateHost: 'your qiniu oss private host'
+      publicHost: 'your qiniu oss public host'
+  alipay:
+    callback:
+      url: http://dev-api.paascloud.net/omc/pay/alipayCallback
+    qrCode:
+      pcPath: /data/file/qrCode/alipay
+      qiniuPath: alipay/QRCode/
+  zk:
+    zkAddressList: paascloud-provider-zk:2181
