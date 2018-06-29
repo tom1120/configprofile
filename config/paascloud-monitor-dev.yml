@@ -10,10 +10,10 @@ spring:
         period: 60000
       discovery:
         enabled: true
-      notify:
-        mail:
-          to: tom1120@126.com
-          from: tom1120@126.com
+#      notify:
+#        mail:
+#          to: tom1120@126.com
+#          from: tom1120@126.com
       turbine:
         clusters: default
         location: paascloud-monitor
