@@ -73,7 +73,7 @@ spring:
 
 feign:
   hystrix:
-    enabled: false
+    enabled: true
   client:
     config:
       default:
@@ -94,7 +94,7 @@ hystrix:
     default:
       execution:
         timeout:
-          enabled: true
+          enabled: false
         isolation:
           thread:
             timeoutInMilliseconds: 30000
