@@ -12,11 +12,12 @@ spring:
   aop:
     proxy-target-class: true
     auto: true
+#  discover本地localhost才能使用guest访问，
   rabbitmq:
     host: paascloud-mq-rabbit
     port: 5672
-    username: guest
-    password: guest
+    username: rabbit
+    password: rabbit
   redis:
     host: paascloud-db-redis
     password: paascloud@redis
